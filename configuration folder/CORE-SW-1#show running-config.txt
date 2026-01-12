@@ -1,0 +1,283 @@
+CORE-SW-1#show running-config 
+Building configuration...
+
+Current configuration : 5538 bytes
+!
+version 12.2(37)SE1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname CORE-SW-1
+!
+!
+no profinet
+enable secret 5 $1$mERr$5.a6P4JqbNiMX01usIfka/
+!
+!
+!
+ip dhcp pool VLAN10
+ network 192.168.10.0 255.255.255.0
+ default-router 192.168.10.254
+ dns-server 8.8.8.8
+ip dhcp pool VLAN11
+ network 192.168.11.0 255.255.255.0
+ default-router 192.168.11.254
+ dns-server 8.8.8.8
+ip dhcp pool VLAN12
+ network 192.168.12.0 255.255.255.0
+ default-router 192.168.12.254
+ dns-server 8.8.8.8
+ip dhcp pool VLAN13
+ network 192.168.13.0 255.255.255.0
+ default-router 192.168.13.254
+ dns-server 8.8.8.8
+ip dhcp pool VLAN20
+ network 192.168.20.0 255.255.255.0
+ default-router 192.168.20.254
+ dns-server 8.8.8.8
+ip dhcp pool VLAN21
+ network 192.168.21.0 255.255.255.0
+ default-router 192.168.21.254
+ dns-server 8.8.8.8
+ip dhcp pool VLAN30
+ network 192.168.30.0 255.255.255.0
+ default-router 192.168.30.254
+ dns-server 8.8.8.8
+ip dhcp pool VLAN31
+ network 192.168.31.0 255.255.255.0
+ default-router 192.168.31.254
+ dns-server 8.8.8.8
+ip dhcp pool VLAN40
+ network 192.168.40.0 255.255.255.0
+ default-router 192.168.40.254
+ dns-server 8.8.8.8
+ip dhcp pool VLAN50
+ network 192.168.50.0 255.255.255.0
+ default-router 192.168.50.254
+ dns-server 8.8.8.8
+ip dhcp pool VLAN60
+ network 192.168.60.0 255.255.255.0
+ default-router 192.168.60.254
+ dns-server 8.8.8.8
+ip dhcp pool VLAN70
+ network 192.168.70.0 255.255.255.0
+ default-router 192.168.70.254
+ dns-server 8.8.8.8
+!
+
+!
+!
+ip routing
+!
+!
+!
+!
+username admin privilege 15 secret 5 $1$mERr$AFX/pZT1Lh7NP3Dp3P/qq/
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain-lookup
+ip domain-name bells.edu.ng
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/1
+ description LINK_TO_ROUTER1
+ no switchport
+ ip address 10.0.254.1 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/2
+!
+interface FastEthernet0/3
+!
+interface FastEthernet0/4
+ switchport trunk allowed vlan 1,10-13,20-21,30-31,40,50,60,70
+ switchport trunk encapsulation dot1q
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+ switchport trunk allowed vlan 1,10-13,20-21,30-31,40,50,60,70
+ switchport trunk encapsulation dot1q
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ ip address 10.0.1.1 255.255.255.0
+!
+interface Vlan10
+ mac-address 0001.63e4.4001
+ ip address 192.168.10.2 255.255.255.0
+ standby 10 ip 192.168.10.1
+ standby 10 priority 110
+ standby 10 preempt
+!
+interface Vlan11
+ mac-address 0001.63e4.4002
+ ip address 10.10.11.1 255.255.255.0
+!
+interface Vlan12
+ mac-address 0001.63e4.4003
+ ip address 192.168.12.2 255.255.255.0
+ standby 12 ip 192.168.12.1
+ standby 12 priority 110
+ standby 12 preempt
+!
+interface Vlan13
+ mac-address 0001.63e4.4004
+ ip address 10.10.13.1 255.255.255.0
+!
+interface Vlan20
+ mac-address 0001.63e4.4005
+ ip address 192.168.20.2 255.255.255.0
+ standby 20 ip 192.168.20.1
+ standby 20 priority 110
+ standby 20 preempt
+!
+interface Vlan21
+ mac-address 0001.63e4.4006
+ ip address 10.10.21.1 255.255.255.0
+!
+interface Vlan30
+ mac-address 0001.63e4.4007
+ ip address 192.168.30.2 255.255.255.0
+ standby 30 ip 192.168.30.1
+ standby 30 priority 110
+ standby 30 preempt
+!
+interface Vlan31
+ mac-address 0001.63e4.4008
+ ip address 10.10.31.1 255.255.255.0
+!
+interface Vlan40
+ mac-address 0001.63e4.4009
+ ip address 192.168.40.2 255.255.255.0
+ standby 40 ip 192.168.40.1
+ standby 40 priority 110
+ standby 40 preempt
+!
+interface Vlan50
+ mac-address 0001.63e4.400a
+ ip address 10.10.50.1 255.255.255.0
+!
+interface Vlan60
+ mac-address 0001.63e4.400b
+ ip address 192.168.60.2 255.255.255.0
+ standby 60 ip 192.168.60.1
+ standby 60 priority 110
+ standby 60 preempt
+!
+interface Vlan70
+ mac-address 0001.63e4.400c
+ ip address 10.10.70.1 255.255.255.0
+!
+router ospf 1
+ log-adjacency-changes
+ network 10.0.11.0 0.0.0.255 area 0
+ network 10.0.12.0 0.0.0.255 area 0
+ network 10.0.13.0 0.0.0.255 area 0
+ network 10.0.20.0 0.0.0.255 area 0
+ network 10.0.21.0 0.0.0.255 area 0
+ network 192.168.1.0 0.0.0.255 area 0
+ network 10.0.254.0 0.0.0.3 area 0
+ network 10.0.30.0 0.0.0.255 area 0
+ network 10.0.31.0 0.0.0.255 area 0
+ network 10.0.40.0 0.0.0.255 area 0
+ network 10.0.50.0 0.0.0.255 area 0
+ network 10.0.60.0 0.0.0.255 area 0
+ network 10.0.70.0 0.0.0.255 area 0
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+ip access-list extended STUDENT_RESTRICT
+ deny ip 10.0.11.0 0.0.0.255 10.0.20.0 0.0.0.255
+ deny ip 10.0.11.0 0.0.0.255 10.0.21.0 0.0.0.255
+ deny ip 10.0.12.0 0.0.0.255 10.0.20.0 0.0.0.255
+ deny ip 10.0.12.0 0.0.0.255 10.0.21.0 0.0.0.255
+ deny ip 10.0.13.0 0.0.0.255 10.0.20.0 0.0.0.255
+ deny ip 10.0.13.0 0.0.0.255 10.0.21.0 0.0.0.255
+ permit ip any any
+ip access-list extended SERVER_PROTECT
+ deny ip any 10.0.40.0 0.0.0.255
+ deny ip any 10.0.50.0 0.0.0.255
+ permit ip any any
+
+banner motd ^C
+Unauthorized access to this device is prohibited.
+^C
+!
+!
+!
+!
+!
+line con 0
+ password 7 0822455D0A16544541
+ login
+!
+line aux 0
+!
+line vty 0 4
+ password 7 0822455D0A16544541
+ login local
+ transport input ssh
+!
+!
+!
+!
+end

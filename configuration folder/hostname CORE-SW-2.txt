@@ -1,0 +1,180 @@
+hostname CORE-SW-2
+!
+!
+no profinet
+enable secret 5 $1$mERr$5.a6P4JqbNiMX01usIfka/
+!
+!
+!
+!
+!
+ip routing
+!
+!
+!
+!
+username admin privilege 15 secret 5 $1$mERr$AFX/pZT1Lh7NP3Dp3P/qq/
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain-lookup
+ip domain-name bells.edu.ng
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/1
+ description LINK_TO_DIST_SW
+ switchport trunk allowed vlan 10-13,20-21,30-31,40,50,60,70
+!
+interface FastEthernet0/2
+!
+interface FastEthernet0/3
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan10
+ mac-address 0005.5e24.1901
+ ip address 10.10.10.2 255.255.255.0
+!
+interface Vlan11
+ mac-address 0005.5e24.1902
+ ip address 192.168.11.3 255.255.255.0
+ standby 11 ip 192.168.11.1
+ standby 11 priority 110
+ standby 11 preempt
+!
+interface Vlan13
+ mac-address 0005.5e24.1903
+ ip address 192.168.13.3 255.255.255.0
+ standby 13 ip 192.168.13.1
+ standby 13 priority 110
+ standby 13 preempt
+!
+interface Vlan21
+ mac-address 0005.5e24.1904
+ ip address 192.168.21.3 255.255.255.0
+ standby 21 ip 192.168.21.1
+ standby 21 priority 110
+ standby 21 preempt
+!
+interface Vlan31
+ mac-address 0005.5e24.1905
+ ip address 192.168.31.3 255.255.255.0
+ standby 31 ip 192.168.31.1
+ standby 31 priority 110
+ standby 31 preempt
+!
+interface Vlan50
+ mac-address 0005.5e24.1906
+ ip address 192.168.50.3 255.255.255.0
+ standby 50 ip 192.168.50.1
+ standby 50 priority 110
+ standby 50 preempt
+!
+interface Vlan70
+ mac-address 0005.5e24.1907
+ ip address 192.168.70.3 255.255.255.0
+ standby 70 ip 192.168.70.1
+ standby 70 priority 110
+ standby 70 preempt
+!
+router ospf 1
+ log-adjacency-changes
+ network 10.0.30.0 0.0.0.255 area 0
+ network 10.0.31.0 0.0.0.255 area 0
+ network 10.0.40.0 0.0.0.255 area 0
+ network 10.0.50.0 0.0.0.255 area 0
+ network 10.0.60.0 0.0.0.255 area 0
+ network 10.0.70.0 0.0.0.255 area 0
+ network 192.168.2.0 0.0.0.255 area 0
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+banner motd ^C
+Unauthorized access to this device is prohibited.
+^C
+!
+!
+!
+!
+!
+line con 0
+ password 7 0822455D0A16544541
+ login
+!
+line aux 0
+!
+line vty 0 4
+ password 7 0822455D0A16544541
+ login local
+ transport input ssh
+!
+!
+!
+!
+end

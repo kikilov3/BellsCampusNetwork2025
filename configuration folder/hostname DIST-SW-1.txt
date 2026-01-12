@@ -1,0 +1,173 @@
+hostname DIST-SW-1
+!
+!
+no profinet
+enable secret 5 $1$mERr$5.a6P4JqbNiMX01usIfka/
+!
+!
+!
+!
+!
+ip routing
+!
+!
+!
+!
+username admin privilege 15 secret 5 $1$mERr$AFX/pZT1Lh7NP3Dp3P/qq/
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain-lookup
+ip domain-name bells.edu.ng
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface Port-channel1
+ description EC_TO_ACCESS_SW
+!
+interface FastEthernet0/1
+ switchport trunk allowed vlan 10-13,20-21,30-31,40,50,60,70
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ duplex full
+ speed 100
+!
+interface FastEthernet0/2
+ description T0_CORE_SW2
+ switchport trunk allowed vlan 10-13,20-21,30-31,40,50,60,70
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ duplex full
+ speed 100
+!
+interface FastEthernet0/3
+ switchport trunk allowed vlan 10-13,20-21,30-31,40,50,60,70
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ duplex full
+ speed 100
+ bandwidth 100000
+!
+interface FastEthernet0/4
+ switchport trunk allowed vlan 10-13,20-21,30-31,40,50,60,70
+ duplex full
+ speed 100
+ bandwidth 100000
+!
+interface FastEthernet0/5
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+ no switchport
+ no ip address
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+ channel-group 1 mode active
+ duplex full
+ speed 100
+!
+interface FastEthernet0/18
+ channel-group 1 mode active
+ duplex full
+ speed 100
+!
+interface FastEthernet0/19
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ shutdown
+!
+interface FastEthernet0/20
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ shutdown
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+ switchport trunk allowed vlan 1,10-13,20-21,30-31,40,50,60,70
+ switchport trunk encapsulation dot1q
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+banner motd ^C
+Unauthorized access to this device is prohibited.
+^C
+!
+!
+!
+!
+!
+line con 0
+ password 7 0822455D0A16544541
+ login
+!
+line aux 0
+!
+line vty 0 4
+ password 7 0822455D0A16544541
+ login local
+ transport input ssh
+!
+!
+!
+!
+end
